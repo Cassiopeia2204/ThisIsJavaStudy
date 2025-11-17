@@ -8,10 +8,15 @@ public class A {
 	
 	private int field3;
 	
+	private String field4;
+	public String field5;
+	
 	public A() {
 		field1 = 1;
 		field2 = 7;
 		field3 = 4;
+		field4 = "이유나";
+		field5 = "할 수 있다";
 		
 		method1();
 		method2();
