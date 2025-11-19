@@ -1,12 +1,14 @@
 package ch06.sec14;
 
 public class Car {
-	private int speed;
-	private boolean stop;
+	
 	
 	public int getSpeed() {
 		return speed;
 	}
+	
+	private int speed;
+	private boolean stop;
 	
 	public void setSpeed(int speed) {
 		if(speed < 0) {
