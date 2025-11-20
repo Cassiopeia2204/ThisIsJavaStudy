@@ -50,7 +50,4 @@ public class Account {
 			this.balance = getBalance();
 		}
 	}
-	
-	
-	
 }
