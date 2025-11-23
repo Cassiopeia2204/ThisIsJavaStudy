@@ -32,24 +32,25 @@ public class BankApplication {
 		case 2 :
 			System.out.println("계좌목록");
 			System.out.println("---------");
-//			System.out.println(account.getAccNo()+"\t"+account.getAccName()+"\t"+account.getBalance());
+			bankApplication.accList();
 			break;
 		case 3 :
 			System.out.println("예금");
 			System.out.println("---------");
 			System.out.print("계좌번호: ");
-//			account.setAccNo(sc.next());
+			String accno3 = sc.next();
 			System.out.print("예금액: ");
-//			account.setBalance(sc.nextInt());
+			int dep = sc.nextInt();
+			bankApplication.deposit(accno3, dep);
 			break;
 		case 4 :
 			System.out.println("출금");
 			System.out.println("---------");
 			System.out.print("계좌번호: ");
-//			account.setAccNo(sc.next());
+			String accno4 = sc.next();
 			System.out.print("출금액: ");
-			n = sc.nextInt();
-//			account.setBalance(account.getBalance() - n);
+			int wd = sc.nextInt();
+			bankApplication.withdraw(accno4, wd);
 			break;
 		case 5 :
 			break;
@@ -64,5 +65,29 @@ public class BankApplication {
 			account[i].setBalance(bal);
 		}
 		return;
+	}
+	void accList() {
+		for(int i=0; i<account.length;i++) {
+			account[i] = new Account();
+			System.out.println(account[i].getAccNo()+"\t"+account[i].getAccName()+"\t"+account[i].getBalance());
+		}
+	}
+	void deposit(String accno3, int dep) {
+		for(int i=0; i<account.length;i++) {
+			account[i] = new Account();
+			if(account[i].getAccNo() == accno3) {
+				int depo = account[i].getBalance() + dep;
+				account[i].setBalance(depo);
+			}
+		}
+	}
+	void withdraw(String accno4, int wd) {
+		for(int i=0; i<account.length;i++) {
+			account[i] = new Account();
+			if(account[i].getAccNo() == accno4) {
+				int depo = account[i].getBalance() - wd;
+				account[i].setBalance(depo);
+			}
+		}
 	}
 }
