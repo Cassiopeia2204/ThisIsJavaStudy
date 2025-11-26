@@ -28,6 +28,16 @@ public class Account {
 	public String accName;
 	public int balance;
 	
+	public Account() {
+		
+	}
+	
+	public Account(String accNo, String accName, int balance){
+		this.accNo = accNo;
+		this.accName = accName;
+		this.balance = balance;
+	}
+	
 	public String getAccNo() {
 		return accNo;
 	}
