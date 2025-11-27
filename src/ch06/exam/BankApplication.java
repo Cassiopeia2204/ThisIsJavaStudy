@@ -11,18 +11,19 @@ public class BankApplication {
 		System.out.println("---------------------------------------------");
 		System.out.println("1.계좌생성 | 2.계좌목록 | 3.예금 | 4.출금 | 5.종료");
 		System.out.print("선택> ");
-		int n = sc.nextInt();
+		int in = Integer.parseInt(sc.nextLine());
+//		int n = sc.nextInt(); 입력버퍼에 \n이 남아있으므로 계좌번호 입력할 때 \n이 들어가서 바로 계좌주로 넘어감. nextLine()을 쓰는 것이 적합
 		System.out.println("---------");
-		switch(n) {
+		switch(in) {
 		case 1 :
 			System.out.println("계좌생성");
 			System.out.println("---------");
 			System.out.print("계좌번호: ");
-			String accno = sc.next();
+			String accno = sc.nextLine();
 			System.out.print("계좌주: ");
-			String name = sc.next();
+			String name = sc.nextLine();
 			System.out.print("초기입금액: ");
-			int bal = sc.nextInt();
+			int bal = Integer.parseInt(sc.nextLine());
 			bankApplication.createAcc(accno, name, bal);
 			System.out.println("결과: 계좌가 생성되었습니다.");
 			break;
@@ -54,14 +55,18 @@ public class BankApplication {
 	}
 	
 	public void createAcc(String accno, String name, int bal) {
+		Account newAccount = new Account(accno, name, bal);
 		for(int i=0; i<account.length;i++) {
-			account[i] = new Account(accno, name, bal);
+			if(account[i]==null) {
+				account[i] = newAccount;
+				break;
+			}
 		}
 	}
 	public void accList() {
 		for(int i=0; i<account.length;i++) {
-			account[i] = new Account();
-			if(account[i].getAccNo() != null) {
+//			account[i] = new Account(); -> 정상적으로 생성된 객체들을 새로운 객체로 덮어쓰겠다는 뜻
+			if(account[i]/*.getAccNo()*/ != null) {
 				System.out.println(account[i].getAccNo()+"\t"+account[i].getAccName()+"\t"+account[i].getBalance());
 			}
 		}
