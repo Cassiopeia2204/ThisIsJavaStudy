@@ -54,10 +54,6 @@ public class Account {
 		return balance;
 	}
 	public void setBalance(int balance) {
-		if(balance > 0) {
-			this.balance = balance;
-		}else {
-			this.balance = getBalance();
-		}
+		this.balance = balance;
 	}
 }
